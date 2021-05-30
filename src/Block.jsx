@@ -4,7 +4,7 @@ import Back from './assets/bloqueo.png'
 const Block = () => {
     return ( 
         <div className='container'>
-              <img src={Back} /> 
+              <img src={Back} alt="background´s view"/> 
         </div>
      );
 }

@@ -7,6 +7,7 @@ import {
 
 import Block from './Block.jsx';
 import Register from './Register.jsx';
+// import GettingData from './GettingData'
 
 import './App.css';
 //import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register">
             <p>Me voy a registrar</p>
             <Register/>
+            {/* <GettingData /> */}
           </Route>
           <Route path="/meeting">
             <p>Ya me registré</p>
