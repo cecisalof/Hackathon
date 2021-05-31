@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 
 import { db } from './firebase'
 
@@ -13,8 +13,8 @@ const initialInputs = {
 const Register = () => {
 
     const [ inputData, setInputData ] = useState(initialInputs);
-    const [ meet, setMeet] = useState([]);
-    const [ error, setError] = useState();
+    // const [ meet, setMeet] = useState([]);
+    // const [ error, setError] = useState();
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -33,37 +33,48 @@ const Register = () => {
         });
     }
 
-    useEffect(() => {
-        db.collection('meets').get()
-          .then(response => {
-            const fetchedMeets = [];
-            response.docs.forEach(document => {
-              const meet = {
-                name: document.name,
-                email: document.email,
-                date: document.date,
-                time: document.time,
-                ...document.data()
-              };
-              fetchedMeets.push(meet);
-            });
-            setMeet(fetchedMeets);
-          })
-          .catch(error => {
-            setError(error);
-          });
-      }, []);
+    // useEffect(() => {
+    //  // 
+    //   }, []);
+
+    //   const printingData = (id) => {
+    //       db.collection('meets').get()
+    //       .then(response => {
+    //         const fetchedMeets = [];
+    //         response.docs.forEach(document => {
+    //           const meet = {
+    //             name: document.name,
+    //             email: document.email,
+    //             date: document.date,
+    //             time: document.time,
+    //             ...document.data()
+    //           };
+    //           fetchedMeets.push(meet);
+    //           console.log(fetchedMeets)
+    //         });
+    //     //     setMeet(fetchedMeets);
+    //     //   })
+    //     //   .catch(error => {
+    //     //     setError(error);
+    //       });
+    //     // fetchedMeets.map(meet => (
+    //     //     <li 
+    //     //     key={meet.id}>
+    //     //         {meet.name}</li>
+    //     //   ))
+    //     };
+      
 
     // BRINGING meet data to the console:
-        db.collection('meets').get()
-        .then(response => {
-        response.docs.forEach(document => {
-        console.log(document.data());
-        });
-        })
-        .catch(error => {
-        console.log(error);
-        });
+        // db.collection('meets').get()
+        // .then(response => {
+        // response.docs.forEach(document => {
+        // console.log(document.data());
+        // });
+        // })
+        // .catch(error => {
+        // console.log(error);
+        // });
 
     
     return (
@@ -78,6 +89,17 @@ const Register = () => {
             <input type='time' id='time' value={inputData.time} onChange = {handleChange}/>
             <input type='submit' value='Confirmar'></input>
             </form>
+            {/* <div>
+            {error ? (
+              <p>Ops, there is an error</p>
+            ) : null }
+            <ul>
+              {fetchedMeets.map(meet => (
+                <li key={meet.id}>{meet.name}</li>
+              ))}
+            </ul>
+          </div> */}
+
         </div>
         
     );

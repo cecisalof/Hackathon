@@ -10,6 +10,7 @@ import Register from './Register.jsx';
 // import GettingData from './GettingData'
 
 import './App.css';
+import CalendarList from './Components/Calendar.jsx';
 //import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
 
@@ -28,6 +29,13 @@ function App() {
           </Route>
           <Route path="/meeting">
             <p>Ya me registré</p>
+          </Route>
+          <Route path="/appoinmentList">
+            <p>Lista de citas</p>
+            <CalendarList />
+          </Route>
+          <Route path="/dashboard">
+            <p>Panel de citas</p>
           </Route>
         </Switch>
       </div>
