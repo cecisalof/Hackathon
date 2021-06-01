@@ -49,8 +49,7 @@ const Register = () => {
         });
     }
 
-
-
+    //
     // useEffect(() => {
     //  // 
     //   }, []);
