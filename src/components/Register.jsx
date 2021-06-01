@@ -65,7 +65,7 @@ const useStyle = makeStyles((theme)=>({
 
 const Register = () => {
 
-    const [hour, sethour] = useState('');
+    const [hour, setHour] = useState('');
     const [ inputData, setInputData ] = useState({
         name:'',
         phone:'',
@@ -95,46 +95,37 @@ const Register = () => {
 
     const handleChange = (e)=>{
         const { value } = e.target;
-        sethour(value);
+        setHour(value);
         setInputData(formatData('time', value));
     }
 
     const handleSubmit= (e) => {
         e.preventDefault()
         postDate()
-        //goConfirmation()
-        gettingData() 
     }
 
     const postDate=()=>{
-        db.collection('meets').add(inputData)
-        .then((docRef) => {
-              if (inputData.phone === '' || inputData.name === ''){
-                console.log('Algunos campos requeridos están vacíos');
-                history.push('/register')
-                   } else {
+        if (inputData.phone === '' || inputData.name === ''){
+            console.log('Algunos campos requeridos están vacíos');
+        } else {
+            db.collection('meets').add(inputData)
+                .then((docRef) => {
+                    gettingData()
                     goConfirmation()
                     console.log('Appoinment id: =>', docRef.id)
-              }
-        })
-        // .catch((error) => {
-        //     console.error('Error adding document:', error);
-        // });
-    }
+              })
+        }
+      }
+    
 
     const gettingData = () => {
           db.collection("meets").where('phone', '==', inputData.phone)
           .get()
           .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-                    // doc.data() is never undefined for query doc snapshots
                     console.log(doc.id, ' => ', doc.data());
                 });
-              
           })
-        //   .catch((error) => {
-        //       console.log("Error getting documents: ", error);
-        //   });
       }
 
 

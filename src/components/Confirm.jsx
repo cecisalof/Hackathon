@@ -6,11 +6,11 @@ import Dates from '../assets/date.png';
 import './Confirm.css';
 import Register from './Register.jsx';
 
-const Confirm = (inputData, setInputData) => {
-
+const Confirm = () => {
 
     return ( 
         <div className='container'>
+
               <img src={Dates} alt=''/> 
               
         </div>
