@@ -102,17 +102,41 @@ const Register = () => {
     const handleSubmit= (e) => {
         e.preventDefault()
         postDate()
-        goConfirmation()
+        //goConfirmation()
+        gettingData() 
     }
 
     const postDate=()=>{
         db.collection('meets').add(inputData)
         .then((docRef) => {
-            
-        }).catch((error) => {
-            console.error('Error adding document:', error);
-        });
+              if (inputData.phone === '' || inputData.name === ''){
+                console.log('Algunos campos requeridos están vacíos');
+                history.push('/register')
+                   } else {
+                    goConfirmation()
+                    console.log('Appoinment id: =>', docRef.id)
+              }
+        })
+        // .catch((error) => {
+        //     console.error('Error adding document:', error);
+        // });
     }
+
+    const gettingData = () => {
+          db.collection("meets").where('phone', '==', inputData.phone)
+          .get()
+          .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, ' => ', doc.data());
+                });
+              
+          })
+        //   .catch((error) => {
+        //       console.log("Error getting documents: ", error);
+        //   });
+      }
+
 
     //Formato de fecha para display moment(date).format(dddd, dd mm YYYY)
     // Antes de hacer el display de la fecha, poner en useEffect(() => {moment.locale('es')}, []) para el idioma, creo xD

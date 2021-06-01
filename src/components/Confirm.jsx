@@ -1,10 +1,13 @@
 import React from 'react';
+import { db } from '../firebase';
 
 import Dates from '../assets/date.png';
 
 import './Confirm.css';
+import Register from './Register.jsx';
 
-const Confirm = () => {
+const Confirm = (inputData, setInputData) => {
+
 
     return ( 
         <div className='container'>
