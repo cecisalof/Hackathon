@@ -7,7 +7,8 @@ const initialInputs = {
     name:'',
     email:'',
     date:'',
-    time:''
+    time:'',
+    phone: ''
 }
 
 const Register = () => {
@@ -19,7 +20,7 @@ const Register = () => {
     const handleChange = (e) => {
         const { id, value } = e.target;
         const newObject = ({...inputData, [id]: value});
-        console.log(newObject);
+        // console.log(newObject);
         setInputData(newObject);
     }
 
@@ -28,10 +29,27 @@ const Register = () => {
         db.collection('meets').add(inputData)
         .then((docRef) => {
             console.log('id:', docRef.id)
+            
         }).catch((error) => {
             console.error('Error adding document:', error);
         });
     }
+    const gettingData = () => {
+      // e.preventDefault()
+        db.collection("meets").where("phone", "==", inputData.phone)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            });
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+    }
+
+
 
     // useEffect(() => {
     //  // 
@@ -65,7 +83,7 @@ const Register = () => {
     //     };
       
 
-    // BRINGING meet data to the console:
+    //BRINGING meet data to the console:
         // db.collection('meets').get()
         // .then(response => {
         // response.docs.forEach(document => {
@@ -76,18 +94,31 @@ const Register = () => {
         // console.log(error);
         // });
 
+
+    //   db.collection("cities").where("capital", "==", true)
+    // .get()
+    // .then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //         // doc.data() is never undefined for query doc snapshots
+    //         console.log(doc.id, " => ", doc.data());
+    //     });
+    // })
+    // .catch((error) => {
+    //     console.log("Error getting documents: ", error);
+    // });
     
     return (
         <div className='container'>
             <form onSubmit={handleSubmit}>
             <input type='text' placeholder='Ingresa tu nombre' id='name' value={inputData.name} onChange = {handleChange}/>
             <input type='email' placeholder='Ingresa tu correo' id='email' value={inputData.email} onChange = {handleChange}/>
+            <input type='number' placeholder='Ingresa tu teléfono' id='phone'value={inputData.phone} onChange={handleChange}/>
             <p>Elige tu sucursal</p>
             <p>Elige tu fecha</p>
             <input type='date' id='date' value={inputData.date} onChange = {handleChange}/>
             <p>Elige tu hora</p>
             <input type='time' id='time' value={inputData.time} onChange = {handleChange}/>
-            <input type='submit' value='Confirmar'></input>
+            <input type='submit' value='Confirmar' onClick={gettingData}></input>
             </form>
             {/* <div>
             {error ? (
