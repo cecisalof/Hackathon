@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { db } from '../firebase';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
@@ -64,17 +64,18 @@ const useStyle = makeStyles((theme)=>({
 
 
 const Register = () => {
-
+    // const [appoinment, setAppoinment] = useState([]);
     const [hour, setHour] = useState('');
     const [ inputData, setInputData ] = useState({
         name:'',
         phone:'',
         date: moment(),
-        time:''
+        time:'',
+        creationDate: Date.now()
     });//inputs
     const classes = useStyle()
     const history = useHistory();
-    
+
     const handleDateChange = (date) => {
         setInputData({...inputData, date: date})
     };
@@ -85,7 +86,7 @@ const Register = () => {
     }
 
     const goConfirmation = () => {
-      history.push('/confirmation');
+     history.push('/confirmation');
     };
 
     const handleInput = (e) => {
@@ -102,6 +103,7 @@ const Register = () => {
     const handleSubmit= (e) => {
         e.preventDefault()
         postDate()
+        goConfirmation()
     }
 
     const postDate=()=>{
@@ -110,23 +112,33 @@ const Register = () => {
         } else {
             db.collection('meets').add(inputData)
                 .then((docRef) => {
-                    gettingData()
-                    goConfirmation()
-                    console.log('Appoinment id: =>', docRef.id)
+                    console.log('Appoinment id: =>', docRef.id);
+                    // gettingData()
               })
         }
       }
     
-
-    const gettingData = () => {
-          db.collection("meets").where('phone', '==', inputData.phone)
-          .get()
-          .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    console.log(doc.id, ' => ', doc.data());
-                });
-          })
-      }
+    // const gettingData = () => {
+    //       db.collection("meets").where('phone', '==', inputData.phone)
+    //       .get()
+    //       .then(querySnapshot => {
+    //             const newAppoinments = [];
+    //             querySnapshot.forEach(doc => {
+    //                 const appoinment = {
+    //                     id: doc.id,
+    //                     ...doc.data()
+    //                   };
+    //                   newAppoinments.push(appoinment)
+    //                   //console.log(doc.id, ' => ', doc.data());
+    //                   console.log(newAppoinments);
+    //             });
+    //         setAppoinment(newAppoinments)
+    //         goConfirmation()
+    //       })
+    //       .catch(error => {
+    //         console.log(error)
+    //       });
+    //   }
 
 
     //Formato de fecha para display moment(date).format(dddd, dd mm YYYY)
