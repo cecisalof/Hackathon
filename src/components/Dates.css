@@ -1,0 +1,45 @@
+#blueBloq{
+    position: absolute;
+    background-color: #214E9D;
+    color: white;
+    width: 51rem;
+    border-radius: 5px;
+    margin: 0rem 0rem 1rem 18rem;
+}
+#horario{
+    color: #006FA9;
+    width: 87rem;
+}
+#productos{
+    color: #006FA9;
+    width: 87rem;
+}
+#buttonBlue{
+    background-color: #214E9D;
+    font-size: large;
+    color: white;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 7px;
+    margin: 3rem 10rem 1rem 13rem;
+}
+#BarTime{
+    width: 51rem;
+    margin: 1rem -2rem 0rem 0rem;
+}
+#bloque1{
+    width: 49rem;
+    background-color: rgba(255, 255, 0, 0);
+}
+#bloque2{
+    width: 50rem;
+    background-color: rgba(153, 205, 50, 0);
+    margin: -17rem 0rem 0rem 35rem;
+}
+#buttonsArea{
+    display: flex;
+    width: 824px;
+    justify-content: space-around;
+    margin-left: 250px;
+    margin-top: 20px;  
+}

@@ -1,0 +1,16 @@
+#invisibleA{
+    position: absolute;
+    width: 258px;
+    height: 55px;
+    left: 16rem;
+    top: 19px;
+    background-color:#00beed00;
+    border: none;
+}
+#buttonsAssistant{
+    display: flex;
+    width: 660px;
+    justify-content: space-around;
+    margin-left: 60px;
+    margin-top: 50px;  
+}

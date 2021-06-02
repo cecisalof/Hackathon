@@ -40,7 +40,7 @@ Por este motivo el “Asistente virtual en sucursal” te debe ayudar **antes, d
 * [2. Problemática](#2-problematica)
 * [3. Prototipo de baja fidelidad](#3-prototipo-de-baja-fidelidad)
 * [4. Manual de usuario](#4-manual-de-usuario)
-
+* [5. Prototipo de alta fidelidad](#5-prototipo-de-alta-fidelidad)
 
 
 ## 1. Usuario final:
@@ -62,3 +62,10 @@ Ella desearía poder agendar una cita en el horario que más le convenga, para o
 
 ## 4. Manual de usuario:
 <img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/manual.png?alt=media&token=6f049fb3-653b-4b57-89d1-83b4e2407b34"/>
+
+## 5. Manual de usuario:
+<img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/7.png?alt=media&token=ea375eb7-3ef6-402b-8169-749b30f76a1b"/>
+<img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/8.png?alt=media&token=efed6f88-8ee1-4640-b6d4-a579bc59aac9"/>
+<img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/9.png?alt=media&token=6c1bff11-eeb8-478a-b7f5-390395954354"/>
+<img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/10.png?alt=media&token=639a7bab-d409-40c9-83e0-fb1957ae1588"/>
+<img align='center' src="https://firebasestorage.googleapis.com/v0/b/personal-13210.appspot.com/o/11.png?alt=media&token=633009c8-3c1b-4072-adbd-6090239496dd"/>
