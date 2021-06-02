@@ -1,7 +1,8 @@
 /* eslint-disable array-callback-return */
 import {React, useState, useEffect }from 'react';
-import {db} from '../firebase.js';
+import {db, Timestamp} from '../firebase.js';
 import Dates from '../assets/date.png';
+
 
 import './Confirm.css';
 import MeetCard from './MeetCard';
@@ -24,12 +25,18 @@ const Confirm = () => {
           obj = doc.data();
           //console.log(obj)
           obj.id = doc.id;
-          console.log(obj.creationDate)
+          console.log(obj.creationDate);
+          const createAt = new Date((obj.creationDate))
+        //   let timestamp = obj.creationDate.toDate();
+        //   let timestamp = obj.creationDate;
+        //   let myDate = new Date(timestamp*1000);
+        //   let formatedTime=myDate.toJSON();
+            console.log(createAt);
 
-          if(doc.creationDate === obj.creationDate){
+        // //   if(myDate === obj.creationDate){
             list.push(obj);
             console.log(list)
-          }
+        //   }
           
         });
         setMeetList(list);

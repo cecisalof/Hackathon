@@ -72,6 +72,7 @@ const Register = () => {
         date: moment(),
         time:'',
         creationDate: Date.now()
+        // createdAt: db.FieldValue.serverTimestamp(),
     });//inputs
     const classes = useStyle()
     const history = useHistory();
