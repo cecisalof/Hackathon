@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { db } from "../firebase.js";
 import "./Confirm.css";
 import MeetCard from "./MeetCard";
+import Dates from '../assets/ticket.png';
 
 const Confirm = () => {
   const [meetList, setMeetList] = useState([]);
@@ -25,7 +26,7 @@ const Confirm = () => {
   };
   return (
     <>
-      <div>
+      <div id='datos'>
         {meetList.map((meet) => (
           <MeetCard
             key={meet.id}
@@ -35,6 +36,7 @@ const Confirm = () => {
           />
         ))}
       </div>
+      <img id='imageDate' src={Dates} alt=''/>
     </>
   );
 };

@@ -36,9 +36,9 @@ function App() {
             </MuiPickersUtilsProvider>  
           </Route>
           <Route path="/confirm">
-            <HeaderConfirm/>
+           
             <Confirm/>
-            <FooterConfirm/>
+           <HeaderConfirm/>
           </Route>
           <Route path="/assistant">
           <HeaderAssistant/>

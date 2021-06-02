@@ -1,7 +1,10 @@
-.container{
-    position: relative;
+#imageDate{
+    position: absolute;
     width: 375px;
     height: 667px;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
 }
 .invisible{
     position: absolute;
@@ -11,4 +14,29 @@
     left: 20px;
     top: 10px;
     background-color: #00beed00;
+}
+#datos{
+    display:flex;
+    width: 220px;
+    height: 299px;
+    left: 5px;
+    top: 123px;
+    position: absolute;
+    z-index: 2;
+    border-radius: 20px;
+    color: #006FA9;
+    text-align: justify;
+}
+h3{
+    padding: 0rem 0rem -1rem 0rem;
+}
+.ticket{
+    margin: 0rem 0rem 0rem 0rem;
+}
+.imprimir{
+    margin: 0rem 0rem 0rem 0rem;
+}
+#datosDos{
+    font-size: 20px;
+    color: #006FA9;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import { db } from "../firebase";
 import Meet from "./Meet";
 import Checkbox from '@material-ui/core/Checkbox';
@@ -37,8 +38,14 @@ const Assistant = () => {
     setMeetList(list);
   };
 
+  const history = useHistory();
+
+  const goPage = () => {
+    history.push("/calendar");
+  };
+
   return (
-    <div>
+    <div div id='datosDos'>
       {meetList.map((meet) => (
         <Meet
           key={meet.id}
@@ -55,7 +62,7 @@ const Assistant = () => {
       </div>
       <h2>Pase a la ventanilla 2</h2>
       <div id='buttonsAssistant'>
-      <Button className={classes.btnConfirm} type='submit' variant='contained'>
+      <Button className={classes.btnConfirm} type='submit' variant='contained' onClick={goPage}>
             Confirmar
             </Button>
             <Button className={classes.btnConfirm} type='submit' variant='contained'>
