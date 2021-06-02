@@ -1,7 +1,8 @@
 /* eslint-disable array-callback-return */
 import {React, useState, useEffect }from 'react';
-import {db, Timestamp} from '../firebase.js';
+import {db} from '../firebase.js';
 import Dates from '../assets/date.png';
+import moment from 'moment';
 
 
 import './Confirm.css';
@@ -25,18 +26,19 @@ const Confirm = () => {
           obj = doc.data();
           //console.log(obj)
           obj.id = doc.id;
-          console.log(obj.creationDate);
-          const createAt = new Date((obj.creationDate))
-        //   let timestamp = obj.creationDate.toDate();
-        //   let timestamp = obj.creationDate;
-        //   let myDate = new Date(timestamp*1000);
-        //   let formatedTime=myDate.toJSON();
-            console.log(createAt);
+        //   console.log("Lista de fechas de creación ", obj.creationDate);
+        //   const creationDateArray = [obj.creationDate];
+        //   console.log("array",creationDateArray);
 
-        // //   if(myDate === obj.creationDate){
+          const createAt = new Date((obj.creationDate)); // fecha y hora de la creación de publicación
+        //   console.log("createAt => ", createAt);
+            const newDate = new Date(); // fecha y hora que corre actualmente
+            // console.log(" new Date =>", newDate);
+
+          if( list < createAt){
             list.push(obj);
-            console.log(list)
-        //   }
+          }
+         console.log("LIST", list)
           
         });
         setMeetList(list);
@@ -54,34 +56,6 @@ const Confirm = () => {
           setMeetList={setMeetList}
         />
       ))}
-            {/* <h3>Tu cita ha sido confirmada</h3> 
-             {appoinment &&
-             appoinment.map((meet) => {
-                    console.log(meet,"holo");
-                    <MeetCard
-                        key={meet.id}
-                        meet={meet}
-                        setMeets={setMeets}
-                        appoinment={appoinment}
-                        setAppoinment={setAppoinment}
-                         />
-             })} */}
-                             
-                    
-                 
-               
-             {/* {<MeetCard
-             key={meet.id}
-             meet={meet}
-             setMeets={setMeets}
-             appoinment={appoinment}
-             setAppoinment={setAppoinment}
-              />} */}
-             
-          
-            
-            
-            
                 <img src={Dates} alt=''/>      
         </div>
         </>
