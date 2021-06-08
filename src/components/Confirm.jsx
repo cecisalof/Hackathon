@@ -3,8 +3,16 @@ import { db } from "../firebase.js";
 import "./Confirm.css";
 import MeetCard from "./MeetCard";
 import Dates from '../assets/ticket.png';
+import { useHistory } from 'react-router-dom';
+
 
 const Confirm = () => {
+  const history = useHistory();
+
+  const goPage = () => {
+    history.push("/assistant");
+  };
+
   const [meetList, setMeetList] = useState([]);
   useEffect(() => {
     getMeets();
@@ -26,6 +34,7 @@ const Confirm = () => {
   };
   return (
     <>
+      
       <div id='datos'>
         {meetList.map((meet) => (
           <MeetCard
@@ -37,6 +46,7 @@ const Confirm = () => {
         ))}
       </div>
       <img id='imageDate' src={Dates} alt=''/>
+      <button className='invisibleTres' onClick={goPage}/>
     </>
   );
 };

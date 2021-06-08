@@ -40,3 +40,13 @@ h3{
     font-size: 20px;
     color: #006FA9;
 }
+.invisibleTres{
+    position: absolute;
+    width: 193px;
+    height: 54px;
+    left: 12px;
+    top: 17px;    
+    background-color: #00beed00;
+    border: none;
+    z-index: 3;
+}

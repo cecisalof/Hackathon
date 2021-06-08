@@ -35,10 +35,8 @@ function App() {
               <Register/>
             </MuiPickersUtilsProvider>  
           </Route>
-          <Route path="/confirm">
-           
+          <Route path="/confirm"> 
             <Confirm/>
-           <HeaderConfirm/>
           </Route>
           <Route path="/assistant">
           <HeaderAssistant/>
